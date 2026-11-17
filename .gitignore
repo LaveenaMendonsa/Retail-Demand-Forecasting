@@ -1,0 +1,24 @@
+
+# Python temporary files
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Dataset files (download separately)
+data/*.csv
+
+# Saved machine learning models
+models/*.pkl
+
+# MLflow local tracking files
+mlruns/
+mlflow/tracking/
+
+# Operating system files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,9 @@
+
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+venv/
+.git/
+*.pyc
+*.ipynb
+mlflow/tracking/
