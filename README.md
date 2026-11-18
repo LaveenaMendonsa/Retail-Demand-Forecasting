@@ -1,276 +1,113 @@
-\# Retail Demand Forecasting \& Analytics Platform
+# Retail Demand Forecasting & Analytics Platform
 
+An end-to-end Machine Learning project that analyzes retail sales data and predicts product demand across multiple stores. Built using Python, Pandas, Scikit-learn, Streamlit, MLflow, and Docker.
 
+## Project Overview
 
-\## Project Overview
+This project uses the Store Sales – Time Series Forecasting dataset to understand retail sales patterns and predict future product demand.
 
+**Objectives:**
+- Analyze historical retail sales trends.
+- Identify top-performing stores and product families.
+- Understand the impact of promotions, holidays, and other factors.
+- Build and compare Machine Learning regression models.
+- Present insights and predictions through an interactive dashboard.
+- Track experiments using MLflow and containerize the application using Docker.
 
+## Technologies Used
 
-This project is an end-to-end Retail Demand Forecasting and Analytics Platform built using Python and Machine Learning.
+- **Programming:** Python
+- **Data Analysis:** Pandas, NumPy
+- **Visualization:** Matplotlib, Seaborn, Plotly
+- **Machine Learning:** Scikit-learn
+- **Models:** Random Forest Regressor, HistGradientBoosting Regressor
+- **Dashboard:** Streamlit
+- **Experiment Tracking:** MLflow
+- **Containerization:** Docker
+- **Development:** Jupyter Notebook, Git, GitHub
 
+## Dataset
 
+- Training records: 3,000,888
+- Test records: 28,512
+- Target variable: `sales`
+- Main features: Date, Store Number, Product Family, Promotions, and additional store, oil, and holiday information.
 
-The goal is to analyze historical retail sales data, identify sales trends, and predict product demand across different stores and product families.
+## Machine Learning Models
 
+Two regression models were trained and evaluated using a time-based validation approach.
 
+| Metric | Random Forest | HistGradientBoosting |
+|---|---:|---:|
+| MAE | 109.28 | 134.14 |
+| RMSE | 374.78 | 333.93 |
+| R² Score | 0.9099 | 0.9284 |
 
-The project combines data preprocessing, exploratory data analysis, machine learning, experiment tracking, interactive visualization, and Docker containerization.
+Random Forest achieved lower MAE, while HistGradientBoosting achieved lower RMSE and higher R². Model selection depends on the evaluation metric and business objective.
 
-
-
-\## Technologies Used
-
-
-
-\- Python
-
-\- Pandas and NumPy
-
-\- Matplotlib and Seaborn
-
-\- Scikit-learn
-
-\- Streamlit
-
-\- Plotly
-
-\- MLflow
-
-\- Docker
-
-\- Jupyter Notebook
-
-
-
-\## Dataset
-
-
-
-The project uses the Store Sales - Time Series Forecasting dataset from Kaggle.
-
-
-
-The dataset contains historical sales information, store details, product families, promotions, holidays, oil prices, and transactions.
-
-
-
-\## Project Workflow
-
-
-
-1\. Data collection and understanding
-
-2\. Data cleaning and preprocessing
-
-3\. Exploratory Data Analysis (EDA)
-
-4\. Feature engineering
-
-5\. Machine Learning model development
-
-6\. Model evaluation and comparison
-
-7\. Forecast generation
-
-8\. MLflow experiment tracking
-
-9\. Interactive Streamlit dashboard
-
-10\. Docker containerization
-
-
-
-\## Machine Learning Models
-
-
-
-Two regression models were developed and evaluated:
-
-
-
-\- Random Forest Regressor
-
-\- HistGradientBoosting Regressor
-
-
-
-\### Model Evaluation
-
-
-
-| Model | MAE | RMSE | R² |
-
-|---|---:|---:|---:|
-
-| Random Forest | 109.28 | 374.78 | 0.9099 |
-
-| HistGradientBoosting | 134.14 | 333.93 | 0.9284 |
-
-
-
-The Random Forest model achieved a lower MAE, while HistGradientBoosting achieved a lower RMSE and higher R² on the validation data.
-
-
-
-\## Streamlit Dashboard
-
-
+## Streamlit Dashboard
 
 The interactive dashboard includes:
 
+- Overview of retail sales
+- Sales trend analysis
+- Product family analysis
+- Store performance analysis
+- Model comparison
+- Demand forecasting results
 
+## MLflow Experiment Tracking
 
-\- Business overview and key performance indicators
+MLflow is used to track model parameters, evaluation metrics, and model artifacts for experiment comparison.
 
-\- Sales analysis
+## Docker Deployment
 
-\- Product family analysis
+The application is containerized using Docker to support consistent execution across environments.
 
-\- Store performance analysis
-
-\- Machine Learning model comparison
-
-\- Demand forecasting with downloadable predictions
-
-
-
-\## MLflow Experiment Tracking
-
-
-
-MLflow is used to track model parameters, evaluation metrics, and model artifacts.
-
-
-
-\## Docker Deployment
-
-
-
-The Streamlit application is containerized using Docker.
-
-
-
-\### Build the Docker Image
-
-
+To run locally:
 
 ```bash
-
 docker build -t retail-demand-forecasting .
-
+docker run -p 8501:8501 retail-demand-forecasting
 ```
 
+Open `http://localhost:8501` in your browser.
 
-
-\### Run the Docker Container
-
-
-
-```bash
-
-docker run -d --name retail-demand-app -p 8501:8501 retail-demand-forecasting
-
-```
-
-
-
-\### Open the Application
-
-
-
-Visit:
-
-
-
-http://localhost:8501
-
-
-
-\## Project Structure
-
-
+## Project Structure
 
 ```text
-
-Retail\_Demand\_Forecasting/
-
+Retail_Demand_Forecasting/
 │
-
-├── data/
-
-├── notebooks/
-
-├── models/
-
 ├── app/
-
 │   └── app.py
-
+├── data/
+├── models/
+├── notebooks/
+│   └── 01_Data_Understanding.ipynb
 ├── mlflow/
-
-│   └── tracking/
-
 ├── docker/
-
 ├── Dockerfile
-
 ├── requirements.txt
-
-├── .dockerignore
-
-├── mlflow\_tracking.py
-
-└── README.md
-
+├── mlflow_tracking.py
+├── README.md
+└── .gitignore
 ```
 
+## Key Learning Outcomes
 
+- Data cleaning and preprocessing
+- Exploratory Data Analysis
+- Feature engineering
+- Time-based model validation
+- Regression model training and evaluation
+- Experiment tracking with MLflow
+- Interactive dashboard development
+- Docker-based application deployment
 
-\## Key Outcomes
+## Author
 
+**Laveena Mendonsa**
 
-
-\- Analyzed approximately 3 million historical sales records.
-
-\- Developed and compared two regression models.
-
-\- Generated predictions for the supplied test dataset.
-
-\- Built an interactive Streamlit analytics dashboard.
-
-\- Implemented MLflow experiment tracking.
-
-\- Containerized the application using Docker.
-
-
-
-\## Future Improvements
-
-
-
-\- Cloud deployment using AWS.
-
-\- Automated model retraining.
-
-\- Improved time-series forecasting.
-
-\- Continuous integration and deployment.
-
-
-
-\## Author
-
-
-
-\*\*Laveena Mendonsa\*\*
-
-
-
-BCA Graduate | Data Science
-
-
+BCA Graduate | Data Science & Machine Learning
 
 GitHub: https://github.com/LaveenaMendonsa
-
-
-
