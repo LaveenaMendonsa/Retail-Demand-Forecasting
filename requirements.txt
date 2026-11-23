@@ -8,3 +8,4 @@ seaborn
 joblib
 mlflow
 plotly
+requests
