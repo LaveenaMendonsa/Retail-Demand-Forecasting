@@ -173,7 +173,7 @@ def fetch_exchange_rates():
 @st.cache_data
 def load_data():
 
-    train = pd.read_csv(DATA_DIR / "train.csv")
+    train = pd.read_csv(DATA_DIR / "train.csv.gz")
     stores = pd.read_csv(DATA_DIR / "stores.csv")
 
     train["date"] = pd.to_datetime(train["date"])
